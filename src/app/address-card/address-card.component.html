@@ -1,0 +1,19 @@
+<div class="address-card">
+
+    <h1 class="name">{{user.name}}</h1>
+    <h3 class="designation">{{user.designation}}</h3>
+
+    <!-- handling click events -->
+    <button *ngIf="isCollapsed" (click)="toggleCollapse()">Expand</button>
+    <button *ngIf="!isCollapsed" (click)="toggleCollapse()">Collapse</button>
+    <div *ngIf="!isCollapsed">
+        <p class="address">{{user.address}}</p>
+        <!-- another dirrective to check whether element exists or not -->
+        <div class="phone" *ngIf="user.phone.length > 0">
+            <!-- loop through the array of phone numbers -->
+            <!-- ngFor is dirrective -->
+            <p>Phone:</p>
+            <p *ngFor="let phoneNumber of user.phone">{{phoneNumber}}</p>
+        </div>
+    </div>
+</div>
